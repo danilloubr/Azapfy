@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import { Fragment, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { useLocation } from "react-router-dom";
@@ -186,7 +187,7 @@ function List() {
 
             {heros.map((item) => {
               return (                
-                <div >
+                <div key={item.id}>
                     <DialogContent>
                     <Card
                   className="card-modal"

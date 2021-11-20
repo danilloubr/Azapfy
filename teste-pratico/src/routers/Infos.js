@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import axios from "axios";
 import { Fragment, useEffect, useState } from "react";
 import Card from "@mui/material/Card";
@@ -19,8 +20,6 @@ function List() {
   const [list, setList] = useState();
 
   const location = useLocation();
-
-  console.log("location", location);
   const history = useHistory();
 
   const { id } = useParams();
@@ -35,20 +34,9 @@ function List() {
         const { data: resp } = await axios.get(
           "http://homologacao3.azapfy.com.br/api/ps/metahumans"
         );
-        console.log("RESP AQUI: ", resp);
-
         const queryObj = new URLSearchParams(location.search);
-        console.log("location.search", location.search);
-
-        console.log("queryObj2: ", queryObj);
-
         Number(queryObj.get("id"));
-
-        console.log("id2: ", id);
-
         const filteredHero = id ? resp.filter((hero) => hero.id == id) : resp;
-        console.log("filteredHero2: ", filteredHero);
-
         setList(filteredHero);
       } catch (error) {
         console.log(error);
