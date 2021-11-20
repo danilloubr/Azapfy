@@ -39,10 +39,14 @@ function List() {
 
   const handleClickOpen = (id) => {
     const result = list.find((hero) => hero.id === id);
-    setHeros([...heros, result]);
-    setBtn([...btn, result.id])
-  };
 
+    setHeros([...heros, result]);
+    setBtn([...btn, result.id]);
+    setTimeout(() => setBusca(""), 200);
+    
+  };
+  
+  
   const handleClose = () => {
     setHeros([]);
     setOpen(true);
