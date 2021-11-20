@@ -1,0 +1,138 @@
+.div-principal {
+  display: flex;
+  flex-wrap: wrap;
+
+  align-content: center;
+  justify-content: space-around;
+
+  margin-top: 15px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.card:hover {
+  top: -4px;
+  box-shadow: 0 4px 3px #999;
+}
+
+.card-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 10px;
+  margin: 15px;
+  padding: 10px;
+}
+
+.div-result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-modal {
+  font-size: 25px;
+}
+.winner {
+  color: rgb(11, 241, 69);
+  font-size: 50px;
+  font-weight: 500;
+}
+
+.card-modal img {
+  border-radius: 10px;
+}
+
+.botao {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.div-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.customOverlay {
+  background: rgba(3, 3, 3, 0.596) !important;
+}
+
+.customModal {
+  display: flex !important;
+  inset: 100px 20px 100px 20px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  background: linear-gradient(to bottom, #7f7fd5, #86a8e7, #91eae4) !important;
+  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.25) !important;
+  animation: slidedown 1s ease !important;
+  border-radius: 10px !important;
+  position: absolute !important;
+  max-width: 100% !important;
+}
+
+.btn-select {
+  background: crimson !important;
+}
+
+.card {
+  --angle: 0deg;
+
+  border: 0.1vmin solid;
+  border-image: conic-gradient(
+      from var(--angle),
+      red,
+      yellow,
+      lime,
+      aqua,
+      blue,
+      magenta,
+      red
+    )
+    1;
+
+  animation: 10s rotate linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+
+@keyframes slidedown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+
+    transform: translateY(0px);
+  }
+}
+
+
+@media (max-width: 790px) {
+  .customModal {
+    display: flex;
+    flex-direction: column;
+  }
+}
