@@ -132,7 +132,16 @@
 
 @media (max-width: 790px) {
   .customModal {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
+    inset: 0px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background: linear-gradient(to bottom, #7f7fd5, #86a8e7, #91eae4) !important;
+    box-shadow: 4px 4px 5px 2px rgb(0 0 0 / 25%) !important;
+    animation: slidedown 1s ease !important;
+    border-radius: 10px !important;
+    position: relative !important;
+    max-width: 100% !important;
   }
 }
