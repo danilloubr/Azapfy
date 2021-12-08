@@ -1,0 +1,98 @@
+.img-responsive-mobile {
+  display: none;
+}
+
+.img-wrapper {
+  position: relative;
+}
+
+.img-responsive {
+  width: 100%;
+  height: auto;
+}
+
+.img-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.img-overlay button {
+  margin: 17px 34px 6px 15px;
+}
+
+.img-overlay:before {
+  content: " ";
+  display: block;
+  /* adjust 'height' to position overlay content vertically */
+  height: 50%;
+}
+
+.btn-responsive {
+  /* matches 'btn-md' */
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
+
+.img-overlay-mobile {
+  display: none;
+}
+
+.customOverlayIntro {
+  background: rgba(3, 3, 3, 0.596) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.customModalIntro {
+  display: flex !important;
+  inset: 100px 20px 100px 20px !important;
+  justify-content: center !important;
+  align-items: center !important;
+
+  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.25) !important;
+
+  border-radius: 10px !important;
+  /* position: absolute !important; */
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: 600px !important;
+  height: 400px !important;
+}
+
+@media (max-width: 760px) {
+  /* matches 'btn-xs' */
+  .btn-responsive {
+    padding: 1px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+  }
+
+  .img-responsive {
+    display: none;
+  }
+
+  .img-responsive-mobile {
+    display: flex;
+    width: 100%;
+    height: auto;
+  }
+
+  /* .img-overlay button {
+    display: none;
+  } */
+  .img-overlay-mobile {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+}
