@@ -27,6 +27,7 @@ function Intro() {
             Você tem que selecionar DOIS Herois para que comece a batalha. O
             heroi com o somatório de habilidades maior será o vencedor!
             <br />
+            Que comecem os Jogos!!!
           </p>
         </div>
       </Modal>
