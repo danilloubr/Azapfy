@@ -71,7 +71,7 @@ function List() {
     const fetchData = async () => {
       try {
         const { data: resp } = await axios.get(
-          "http://homologacao3.azapfy.com.br/api/ps/metahumans"
+          "https://cors-everywhere.herokuapp.com/http://homologacao3.azapfy.com.br/api/ps/metahumans"
         );
         const queryObj = new URLSearchParams(location.search);
         const id = Number(queryObj.get("id"));
