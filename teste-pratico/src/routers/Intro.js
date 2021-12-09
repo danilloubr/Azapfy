@@ -20,11 +20,13 @@ function Intro() {
           modal: "customModalIntro",
         }}
       >
-        <div>
+        <div className="conteudo-modal">
           <h1>REGRAS DO JOGO</h1>
           <p>
-            Você tem que selecionar dois CARDS e o heroi com maior pontuação
-            vence a batalha!
+            <br />
+            Você tem que selecionar DOIS Herois para que comece a batalha. O
+            heroi com o somatório de habilidades maior será o vencedor!
+            <br />
           </p>
         </div>
       </Modal>
