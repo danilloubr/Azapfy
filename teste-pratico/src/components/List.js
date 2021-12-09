@@ -2,8 +2,8 @@
 import { Fragment, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { useLocation } from "react-router-dom";
-import { Modal } from 'react-responsive-modal';
-import { animateScroll as scroll} from 'react-scroll'
+import { Modal } from "react-responsive-modal";
+import { animateScroll as scroll } from "react-scroll";
 
 import axios from "axios";
 
@@ -21,22 +21,28 @@ import "../styles/List.css";
 import Footer from "./Footer";
 
 function List() {
-  
   const [list, setList] = useState();
   const [busca, setBusca] = useState("");
   const [heros, setHeros] = useState([]);
-  const [btn, setBtn] = useState([])
+  const [btn, setBtn] = useState([]);
   const [open, setOpen] = useState(true);
 
-  
   const location = useLocation();
   const history = useHistory();
 
-  const heroi1 = heros[0] && Object.values(heros[0].powerstats).reduce(
-      (acc, current) => (acc += current),0);
-  
-  const heroi2 = heros[1] && Object.values(heros[1].powerstats).reduce(
-      (acc, current) => (acc += current), 0);
+  const heroi1 =
+    heros[0] &&
+    Object.values(heros[0].powerstats).reduce(
+      (acc, current) => (acc += current),
+      0
+    );
+
+  const heroi2 =
+    heros[1] &&
+    Object.values(heros[1].powerstats).reduce(
+      (acc, current) => (acc += current),
+      0
+    );
 
   const handleClickOpen = (id) => {
     const result = list.find((hero) => hero.id === id);
@@ -44,20 +50,18 @@ function List() {
     setHeros([...heros, result]);
     setBtn([...btn, result.id]);
     setTimeout(() => setBusca(""), 200);
-    
   };
-  
+
   const scrollToTop = () => {
     scroll.scrollToTop();
-  }
-  
+  };
+
   const handleClose = () => {
     setHeros([]);
     setOpen(true);
     setBtn([]);
     setTimeout(() => scrollToTop(), 200);
-    
-  }
+  };
 
   const goHero = (id) => {
     history.push(`/infos/${id}`);
@@ -68,7 +72,7 @@ function List() {
       try {
         const { data: resp } = await axios.get(
           "http://homologacao3.azapfy.com.br/api/ps/metahumans"
-        ); 
+        );
         const queryObj = new URLSearchParams(location.search);
         const id = Number(queryObj.get("id"));
         const filteredHero = id ? resp.filter((hero) => hero.id === id) : resp;
@@ -150,24 +154,28 @@ function List() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    {btn == item.id ? (<Button
-                    className="btn-select"
-                      size="small"
-                      variant="contained"
-                      color="success"
-                      type="submit"
-                      onClick={() => handleClickOpen(item.id)}
-                    >
-                      Selecionado
-                    </Button>) :  <Button                    
-                      size="small"
-                      variant="contained"
-                      color="success"
-                      type="submit"
-                      onClick={() => handleClickOpen(item.id)}
-                    >
-                      Selecionar
-                    </Button>}
+                    {btn == item.id ? (
+                      <Button
+                        className="btn-select"
+                        size="small"
+                        variant="contained"
+                        color="success"
+                        type="submit"
+                        onClick={() => handleClickOpen(item.id)}
+                      >
+                        Selecionado
+                      </Button>
+                    ) : (
+                      <Button
+                        size="small"
+                        variant="contained"
+                        color="success"
+                        type="submit"
+                        onClick={() => handleClickOpen(item.id)}
+                      >
+                        Selecionar
+                      </Button>
+                    )}
                     <Button
                       variant="outlined"
                       size="small"
@@ -182,63 +190,59 @@ function List() {
           })}
       </div>
 
-      
-        {heros.length === 2 && (
-          <Modal          
+      {heros.length === 2 && (
+        <Modal
           open={open}
           onClose={handleClose}
-          center 
+          center
           classNames={{
-          overlay: "customOverlay",
-          modal: "customModal",
-        }}
-          >
-
-            {heros.map((item) => {
-              return (                
-                <div key={item.id}>
-                    <DialogContent>
-                    <Card
-                  className="card-modal"
-                  sx={{
-                    minWidth: 150,
-                    boxShadow: "5px 5px 5px 2px rgba(0, 0, 0, 0.25)",
-                    borderRadius: "20px"
-                  }}
-                >
-                      <img alt={item.id} src={item.images.sm}></img>
-                      <br />
-                      <br />
-                      <div>Nome: {item.name}</div>
-                      <br />
-                      <p>Inteligência: {item.powerstats.intelligence}</p>
-                      <p>Força: {item.powerstats.strength}</p>
-                      <p>Velocidade: {item.powerstats.speed} </p>
-                      <p> Resistência: {item.powerstats.durability} </p>
-                      <p>Poder: {item.powerstats.power}</p>
-                      <p>Combate: {item.powerstats.combat} </p>
-                      
-                      </Card>
-                    </DialogContent>
-                  </div>                
-              );
-            })}
-            {heroi1 > heroi2 ? (
-              <div className="div-result">
-              <p className="container-modal">{heros[0].name} </p> 
-              <p className="winner"> Winner</p>
+            overlay: "customOverlay",
+            modal: "customModal",
+          }}
+        >
+          {heros.map((item) => {
+            return (
+              <div key={item.id}>
+                <DialogContent>
+                  <Card
+                    className="card-modal"
+                    sx={{
+                      minWidth: 150,
+                      boxShadow: "5px 5px 5px 2px rgba(0, 0, 0, 0.25)",
+                      borderRadius: "20px",
+                    }}
+                  >
+                    <img alt={item.id} src={item.images.sm}></img>
+                    <br />
+                    <br />
+                    <div>Nome: {item.name}</div>
+                    <br />
+                    <p>Inteligência: {item.powerstats.intelligence}</p>
+                    <p>Força: {item.powerstats.strength}</p>
+                    <p>Velocidade: {item.powerstats.speed} </p>
+                    <p> Resistência: {item.powerstats.durability} </p>
+                    <p>Poder: {item.powerstats.power}</p>
+                    <p>Combate: {item.powerstats.combat} </p>
+                  </Card>
+                </DialogContent>
               </div>
-            ) : (
-              <div className="div-result">
-              <p className="container-modal">{heros[1].name} </p> 
+            );
+          })}
+          {heroi1 > heroi2 ? (
+            <div className="div-result">
+              <p className="container-modal">{heros[0].name} </p>
               <p className="winner"> Winner</p>
-              </div>
-            )}
-          </Modal>
-        )}   
+            </div>
+          ) : (
+            <div className="div-result">
+              <p className="container-modal">{heros[1].name} </p>
+              <p className="winner"> Winner</p>
+            </div>
+          )}
+        </Modal>
+      )}
 
-        
-        <Footer/>
+      <Footer />
     </Fragment>
   );
 }

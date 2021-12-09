@@ -54,15 +54,19 @@
   inset: 100px 20px 100px 20px !important;
   justify-content: center !important;
   align-items: center !important;
-
+  margin: auto !important;
   box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.25) !important;
 
   border-radius: 10px !important;
   /* position: absolute !important; */
   max-width: 100% !important;
   max-height: 100% !important;
-  width: 600px !important;
-  height: 400px !important;
+  width: 600px;
+  height: 400px;
+}
+
+.conteudo-modal {
+  text-align: center;
 }
 
 @media (max-width: 760px) {
@@ -94,5 +98,20 @@
     left: 0;
     right: 0;
     text-align: center;
+  }
+
+  .customModalIntro {
+    display: flex !important;
+    inset: 100px 20px 100px 20px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: auto !important;
+    box-shadow: 4px 4px 5px 2px rgb(0 0 0 / 25%) !important;
+    border-radius: 10px !important;
+    position: absolute !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: auto;
+    height: auto;
   }
 }
