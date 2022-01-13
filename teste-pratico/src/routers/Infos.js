@@ -25,7 +25,7 @@ function List() {
   const { id } = useParams();
 
   const goBack = () => {
-    history.push("/");
+    history.push("/dashboard");
   };
 
   useEffect(() => {
