@@ -32,7 +32,7 @@ function List() {
     const fetchData = async () => {
       try {
         const { data: resp } = await axios.get(
-          "http://homologacao3.azapfy.com.br/api/ps/metahumans"
+          "https://cors-everywhere.herokuapp.com/http://homologacao3.azapfy.com.br/api/ps/metahumans"
         );
         const queryObj = new URLSearchParams(location.search);
         Number(queryObj.get("id"));
@@ -74,7 +74,7 @@ function List() {
                   minWidth: 150,
                   maxWidth: 400,
                   boxShadow: "5px 5px 5px 2px rgba(0, 0, 0, 0.25)",
-                  padding: "30px"
+                  padding: "30px",
                 }}
               >
                 <CardContent>
@@ -103,53 +103,60 @@ function List() {
                     {item.appearance.race}
                   </Typography>
                   <br />
-                <div className="conteudo-lateral">
-                  
-                  <Typography sx={{ fontSize: 12,  marginTop: "10px" }} color="text.secondary">
-                    Ocupação:
-                  </Typography>
-                  <Typography variant="body3">
-                  <p>{item.work.occupation}</p>
-                  </Typography>
-                  <Typography sx={{ fontSize: 12,  marginTop: "10px" }} color="text.secondary">
-                    Altura:
-                  </Typography>
-                  <Typography variant="body3">
-                  <p>{item.appearance.height[1]}</p>
-                  </Typography>
-                  <Typography sx={{ fontSize: 12,  marginTop: "10px" }} color="text.secondary">
-                    Peso:
-                  </Typography>
-                  <Typography variant="body3">
-                  <p>{item.appearance.weight[1]}</p>
-                  
-                   
-                  </Typography>
-                  <Typography sx={{ fontSize: 12,  marginTop: "10px" }} color="text.secondary">
-                    Atributos:
-                  </Typography>
-                  <Typography variant="body3">
-                  <p>Inteligência: {item.powerstats.intelligence}</p>
-                  <p>Força: {item.powerstats.strength}</p>
-                  <p>Velocidade: {item.powerstats.speed} </p>
-                  <p> Resistência: {item.powerstats.durability} </p>
-                  <p>Poder: {item.powerstats.power}</p>
-                  <p>Combate: {item.powerstats.combat} </p>
-                   
-                  </Typography>
-                </div>
+                  <div className="conteudo-lateral">
+                    <Typography
+                      sx={{ fontSize: 12, marginTop: "10px" }}
+                      color="text.secondary"
+                    >
+                      Ocupação:
+                    </Typography>
+                    <Typography variant="body3">
+                      <p>{item.work.occupation}</p>
+                    </Typography>
+                    <Typography
+                      sx={{ fontSize: 12, marginTop: "10px" }}
+                      color="text.secondary"
+                    >
+                      Altura:
+                    </Typography>
+                    <Typography variant="body3">
+                      <p>{item.appearance.height[1]}</p>
+                    </Typography>
+                    <Typography
+                      sx={{ fontSize: 12, marginTop: "10px" }}
+                      color="text.secondary"
+                    >
+                      Peso:
+                    </Typography>
+                    <Typography variant="body3">
+                      <p>{item.appearance.weight[1]}</p>
+                    </Typography>
+                    <Typography
+                      sx={{ fontSize: 12, marginTop: "10px" }}
+                      color="text.secondary"
+                    >
+                      Atributos:
+                    </Typography>
+                    <Typography variant="body3">
+                      <p>Inteligência: {item.powerstats.intelligence}</p>
+                      <p>Força: {item.powerstats.strength}</p>
+                      <p>Velocidade: {item.powerstats.speed} </p>
+                      <p> Resistência: {item.powerstats.durability} </p>
+                      <p>Poder: {item.powerstats.power}</p>
+                      <p>Combate: {item.powerstats.combat} </p>
+                    </Typography>
+                  </div>
                 </CardContent>
-                <CardActions>
-                </CardActions>
-                
-                  <Button
-                    size="small"
-                    variant="outlined"
-                    onClick={() => goBack()}
-                  >
-                    Voltar
-                  </Button>
-                  <br />
+                <CardActions></CardActions>
+
+                <Button
+                  size="small"
+                  variant="outlined"
+                  onClick={() => goBack()}
+                >
+                  Voltar
+                </Button>
+                <br />
               </Card>
             </div>
           );
